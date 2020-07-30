@@ -33,8 +33,8 @@ const dateFormat = require('dateformat');
 
 
 
-const prefix = "!"
-const developers = "496996678088392725"
+const prefix = "!"//لاتغير البرفكس
+const developers = ""//ايديك
 
 ////////
 
@@ -1178,4 +1178,4 @@ const Sra7a = [
 });
 
 
-client.login('NzE5NTE3NDA5OTc0OTQzNzg1.Xt4kzg.Wg6eumXi_LSvf23vdlmTYhj3zjE')
+client.login('')//توكن بوتك
