@@ -1,0 +1,27 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "array-sort": "^1.0.0",
+    "canvas": "^2.6.1",
+    "dateformat": "^3.0.3",
+    "discord.js": "^11.3.2",
+    "express": "^4.17.1",
+    "get-youtube-id": "^1.0.1",
+    "gif-search": "^2.1.0",
+    "guild": "^1.2.2",
+    "hastebin-gen": "^2.0.5",
+    "hh-mm-ss": "^1.2.0",
+    "isgd": "^1.1.3",
+    "jimp": "^0.14.0",
+    "moment": "^2.27.0",
+    "ms": "^2.1.2",
+    "node-cmd": "^3.0.0",
+    "pretty-ms": "^7.0.0",
+    "request": "^2.88.2",
+    "simple-youtube-api": "^5.2.1",
+    "table": "^5.4.6",
+    "util": "^0.12.3",
+    "youtube-info": "^1.3.2",
+    "ytdl-core": "^3.1.2"
+  }
+}
