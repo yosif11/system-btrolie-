@@ -87,7 +87,13 @@ client.on('message', message => {
  .addField("✽- **!role all rank  ↠  『 يعطي رتبه لكل الاشخاص 』**",' ‎ ')
  .addField("✽- **!mute ↠  『 لاعطاء ميوت لشخص 』**",' ‎ ')
  .addField("✽- **!unmute ↠  『 فك الميوت 』**",' ‎ ') 
+.addField("✽- **!credits↠  『ل الاظهار كم ريال	』**",' ‎ ') 	
+ .ddField("✽- **!daily	↠ 『لي أخذ الراتب
+ .ddField("✽- **!daily↠ 『لي أخذ الراتب 	  
+.ddField("✽- **!stop ↠ 『لي ايقاف الموسيقه
+.ddField("✽- **!play ↠  『لي تشغيل الموسيقه
  .setFooter('||</>~btrolie sto||')
+	 
 
 
    message.channel.send({embed});
@@ -143,7 +149,7 @@ client.on('message', message => {
  .addField("✽- **!infoinvite ↠  『 معلومات الانفايت حقك  』**",' ‎ ')
  .addField("✽- **!member ↠  『 حاله الاعضاء 』**",' ‎ ')	  
  .addField("✽- **!id ↠  『 معلومات حسابك  』**",' ‎ ')	  
- .addField("**⊙سيتم وضع المزيد في اصدار البوت v2⊙**",' ‎ ')
+ .addField
 
  .setFooter('||</>~btrolie sto||')
 
@@ -170,7 +176,7 @@ client.on('message', message => {
  .addField("✽- **!limittime 1000 ↠  『 اكتب ذا الامر بعد متخلص تفعيل الحمايه 』**",' ‎ ')
  .addField("✽- **!antibots on ↠  『 منع دخول البوتات شغال 』**",' ‎ ')	  
  .addField("✽- **!antibots off ↠  『 منع دخول البوتات ايقاف 』**",' ‎ ')	  
- .addField("**⊙سيتم وضع المزيد في اصدار البوت v2⊙**",' ‎ ')
+ .addField
 
  .setFooter('||</>~btrolie sto||')
 
@@ -182,7 +188,7 @@ client.on('message', message => {
 
 //حمايه 
 
-let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
+let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));//btrolie
 let config = JSON.parse(fs.readFileSync("./config.json", "UTF8"));
 client.on("message", message => {
     if(!message.channel.guild) return;
@@ -190,28 +196,29 @@ client.on("message", message => {
     let num = message.content.split(" ").slice(1).join(" ");
     if(!anti[message.guild.id+message.author.id]) anti[message.guild.id+message.author.id] = {
         actions: 0
-    }
+    }//btrolie
     if(!config[message.guild.id]) config[message.guild.id] = {
         banLimit: 3,
         chaDelLimit: 3,
-        roleDelLimit: 3,
+        roleDelLimit: 3,//btrolie
         kickLimits: 3,
         roleCrLimits: 3,
         time: 30
     }
-if(message.content.startsWith(prefix + "limit")) {
+if(message.content.startsWith(prefix + "limit")) {//btrolie
 
  
     if(!message.member.hasPermission('MANAGE_GUILD')) return;
     if(message.content.startsWith(prefix + "limitbans")) {
         if(!num) return message.channel.send("**→ | Supply a number !");
-        if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
+        if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");//btrolie
         config[message.guild.id].banLimit = num;
-        message.channel.send(`**→ | Changed bans limit to : ${config[message.guild.id].banLimit}.**`)
+        message.channel.send(`**→ | Changed bans limit to : ${config[message.guild.id].banLimit}.**`)//btrolie
     }
     if(message.content.startsWith(prefix + "limitkicks")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
-        if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
+        if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");//btrolie 
+        config[message.guild.id].kickLimits = num;
         message.channel.send(`**→ | Changed kicks limit to : ${config[message.guild.id].kickLimits}.**`)
     }
     if(message.content.startsWith(prefix + "limitroleDelete")) {
@@ -221,7 +228,7 @@ if(message.content.startsWith(prefix + "limit")) {
         message.channel.send(`**→ | Changed Role Deleting limit to : ${config[message.guild.id].roleDelLimit}.**`)
     }
     if(message.content.startsWith(prefix + "limitroleCreate")) {
-        if(!num) return message.channel.send("**→ | Supply a number !**");
+        if(!num) return message.channel.send("**→ | Supply a number !**");//btrolie
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
         config[message.guild.id].roleCrLimits = num;
         message.channel.send(`**→ | Changed Role Creation limit to : ${config[message.guild.id].roleCrLimits}.**`)
@@ -235,12 +242,12 @@ if(message.content.startsWith(prefix + "limit")) {
     if(message.content.startsWith(prefix + "limittime")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
-        config[message.guild.id].time = num;
+        config[message.guild.id].time = num;//btrolie//btrolie
         message.channel.send(`**→ | Changed Times limit to : ${config[message.guild.id].time}.**`)
     }
     fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
         if(e) throw e;
-    });
+    });//btrolie
     fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
         if(e) throw e;
         });
@@ -251,15 +258,15 @@ client.on("channelDelete", async channel => {
         type: 'CHANNEL_DELETE'
     }).then(audit => audit.entries.first())
     console.log(entry1.executor.username)
-    const entry = entry1.executor
+    const entry = entry1.executor//btrolie
     if (!config[channel.guild.id]) config[channel.guild.id] = {
         banLimit: 3,
         chaDelLimit: 3,
         roleDelLimit: 3,
         kickLimits: 3,
-        roleCrLimits: 3
+        roleCrLimits: 3//btrolie
     }
-    if (!anti[channel.guild.id + entry.id]) {
+    if (!anti[channel.guild.id + entry.id]) {//btrolie
         anti[channel.guild.id + entry.id] = {
             actions: 1
         }
@@ -267,21 +274,21 @@ client.on("channelDelete", async channel => {
             anti[channel.guild.id + entry.id].actions = "0"
         }, config[channel.guild.id].time * 1000)
     } else {
-        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)
+        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)//btrolie
         console.log("TETS");
         setTimeout(() => {
             anti[channel.guild.id + entry.id].actions = "0"
-        }, config[channel.guild.id].time * 1000)
+        }, config[channel.guild.id].time * 1000)//btrolie
         if (anti[channel.guild.id + entry.id].actions >= config[channel.guild.id].chaDelLimit) {
             channel.guild.members.get(entry.id).ban().catch(e => channel.guild.owner.send(`**→ | ${entry.username} , Deleted many __Channles__.**`))
             anti[channel.guild.id + entry.id].actions = "0"
-            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
+            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {//btrolie
                 if (e) throw e;
-            });h
+            });//btrolie
             fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
                 if (e) throw e;
             });
-        }
+        }//btrolie
     }
 
     fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
@@ -290,7 +297,7 @@ client.on("channelDelete", async channel => {
     fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
         if (e) throw e;
     });
-});
+});//btrolie
 
 client.on("roleDelete", async channel => {
     const entry1 = await channel.guild.fetchAuditLogs({
@@ -300,7 +307,7 @@ client.on("roleDelete", async channel => {
     const entry = entry1.executor
     if (!config[channel.guild.id]) config[channel.guild.id] = {
         banLimit: 3,
-        chaDelLimit: 3,
+        chaDelLimit: 3,//btrolie
         roleDelLimit: 3,
         kickLimits: 3,
         roleCrLimits: 3
@@ -315,7 +322,7 @@ client.on("roleDelete", async channel => {
     } else {
         anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)
         console.log("TETS");
-        setTimeout(() => {
+        setTimeout(() => {//btrolie
             anti[channel.guild.id + entry.id].actions = "0"
         }, config[channel.guild.id].time * 1000)
         if (anti[channel.guild.id + entry.id].actions >= config[channel.guild.id].roleDelLimit) {
@@ -328,117 +335,6 @@ client.on("roleDelete", async channel => {
                 if (e) throw e;
             });
         }
-    }
-
-    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
-        if (e) throw e;
-    });
-    fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
-        if (e) throw e;
-    });
-});
-
-client.on("roleCreate", async channel => {
-    const entry1 = await channel.guild.fetchAuditLogs({
-        type: 'ROLE_CREATE'
-    }).then(audit => audit.entries.first())
-    console.log(entry1.executor.username)
-    const entry = entry1.executor
-    if (!config[channel.guild.id]) config[channel.guild.id] = {
-        banLimit: 3,
-        chaDelLimit: 3,
-        roleDelLimit: 3,
-        kickLimits: 3,
-        roleCrLimits: 3
-    }
-    if (!anti[channel.guild.id + entry.id]) {
-        anti[channel.guild.id + entry.id] = {
-            actions: 1
-        }
-        setTimeout(() => {
-            anti[channel.guild.id + entry.id].actions = "0"
-        }, config[channel.guild.id].time * 1000)
-    } else {
-        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)
-        console.log("TETS");
-        setTimeout(() => {
-            anti[channel.guild.id + entry.id].actions = "0"
-        }, config[channel.guild.id].time * 1000)
-        if (anti[channel.guild.id + entry.id].actions >= config[channel.guild.id].roleCrLimits) {
-            channel.guild.members.get(entry.id).ban().catch(e => channel.guild.owner.send(`**→ | ${entry.username} , is creating many __Rooms__.**`))
-            anti[channel.guild.id + entry.id].actions = "0"
-            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
-                if (e) throw e;
-            });
-            fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
-                if (e) throw e;
-            });
-        }
-    }
-
-    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
-        if (e) throw e;
-    });
-    fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
-        if (e) throw e;
-    });
-});
-
-let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require antihack.json file
-client.on('message', message => {
-    if(message.content.startsWith(prefix + "antibots on")) {
-        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
-        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('**Sorry But You Dont Have Permission** `ADMINISTRATOR`' );
-antibots[message.guild.id] = {
-onoff: 'On',
-}
-message.channel.send(`**✅ The AntiBots Is __𝐎𝐍__ !**`)
-          fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
-            if (err) console.error(err)
-            .catch(err => {
-              console.error(err);
-          });
-            });
-          }
- 
-        })
- 
- 
- 
-client.on('message', message => {
-    if(message.content.startsWith(prefix + "antibots off")) {
-        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
-        if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('**Sorry But You Dont Have Permission** `ADMINISTRATOR`' );
-antibots[message.guild.id] = {
-onoff: 'Off',
-}
-message.channel.send(`**⛔ The AntiBots Is __𝐎𝐅𝐅__ !**`)
-          fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
-            if (err) console.error(err)
-            .catch(err => {
-              console.error(err);
-          });
-            });
-          }
- 
-        })
- 
-client.on("guildMemberAdd", member => {
-  if(!antibots[member.guild.id]) antibots[member.guild.id] = {
-onoff: 'Off'
-}
-  if(antibots[member.guild.id].onoff === 'Off') return;
-if(member.user.bot) return member.kick()
-})
- 
-fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
-if (err) console.error(err)
-.catch(err => {
-console.error(err);
-});
- 
-})
-
 //كود البان btrolie
 client.on('message', message => {
    
@@ -1176,6 +1072,166 @@ const Sra7a = [
    message.react("??")
  }
 });
+const cool = [];
+client.on('message',async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === 'dm') return;
+ 
+  const args = message.content.split(' ');
+  const credits = require('./credits.json');
+  const path = './credits.json';
+  const mention = message.mentions.users.first() || client.users.get(args[1]) || message.author;
+  const mentionn = message.mentions.users.first() || client.users.get(args[1]);
+  const author = message.author.id;
+  const balance = args[2];
+  const daily = Math.floor(Math.random() * 350) + 10;
+ 
+  if(!credits[author]) credits[author] = {credits: 50};
+  if(!credits[mention.id]) credits[mention.id] = {credits: 50};
+  fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
+ 
+ 
+  if(message.content.startsWith(prefix + "credit")) {
+  if(args[0] !== `${prefix}credit` && args[0] !== `${prefix}credits`) return;
+ 
+  if(args[2]) {
+	if(isNaN(args[2]) || args[2] < 0) return message.channel.send(' هذه الخانة يجب ان تتكون من ارقام صحيحة وليس احرف.');
+    if(mention.bot) return message.channel.send(`**:heavy_multiplication_x:| ${message.content.split(' ')[1]} لم يتم العثور على**`);
+    if(mention.id === message.author.id) return message.channel.send('**:heavy_multiplication_x:| لا يمكنك تحويل كردت لنفسك**');
+    if(credits[author].credits < balance) return message.channel.send('**:heavy_multiplication_x:| أنت لا تملك هذا القدر من الكردت**');
+    var one = Math.floor(Math.random() * 9) + 1;
+    var two = Math.floor(Math.random() * 9) + 1;
+    var three = Math.floor(Math.random() * 9) + 1;
+    var four = Math.floor(Math.random() * 9) + 1;
+ 
+    var number = `${one}${two}${three}${four}`;
+ 
+    message.channel.send(`**:heavy_dollar_sign:| \`${number}\`, أكتب الرقم للأستمرار**`).then(m => {
+      message.channel.awaitMessages(m => m.author.id === message.author.id, {max: 1, time: 10000}).then(c => {
+        if(c.first().content === number) {
+          m.delete();
+          message.channel.send(`**:atm:| ${message.author.username}, قام بتحويل \`${balance}\` لـ ${mention}**`);
+          credits[author].credits += (-balance);
+          credits[mention.id].credits += (+balance);
+          fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
+        } else if(c.first().content !== number) {
+          m.delete();
+          message.channel.send(`** :money_with_wings: | تم الغاء الإرسال**`);
+        }
+      });
+    });
+  }
+  if(!args[2]) {
+    if(mention.bot) return message.channel.send(`**:heavy_multiplication_x:| ${message.content.split(' ')[1]} لم يتم العثور على**`);
+    message.channel.send(`**${mention.username}, your :credit_card: balance is **${credits[mention.id].credits}`);
+  } 
+ 
+  }
+  if(message.content.startsWith(prefix + "daily")) {
+    if(cool.includes(message.author.id)) return message.channel.send(`**:heavy_dollar_sign: | \ , يجب عليك انتظار  يوم لأخذ المبلغ مرة اخرى**`);
+    if(mentionn) {
+      var one = Math.floor(Math.random() * 9) + 1;
+      var two = Math.floor(Math.random() * 9) + 1;
+      var three = Math.floor(Math.random() * 9) + 1;
+      var four = Math.floor(Math.random() * 9) + 1;
+ 
+      var number = `${one}${two}${three}${four}`;
+ 
+      message.channel.send(`**:atm: | \`${number}\`, قم بكتابة الرقم للأستمرار**`).then(async m => {
+        message.channel.awaitMessages(msg => msg.author.id === message.author.id, {max: 1, time: 20000, errors: ['time']}).then(collected => {
+          if(collected.first().content === number) {
+            m.delete();
+            collected.first().delete();
+            credits[mentionn.id].credits += (+daily);
+            fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
+ 
+          message.channel.send(`**:atm: | \`${daily}\`, تم تسليم المبلغ**`);  
+          }
+          if(collected.first().content !== number) {
+            return m.delete();
+          }
+        });
+      });
+    } else if(!mentionn) {
+      credits[author].credits += (+daily);
+      fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
+ 
+      message.channel.send(`**:atm: | \`${daily}\`, تم اعطائك المبلغ**`);
+    }
+    cool.unshift(message.author.id);
+ 
+    setTimeout(() => {
+      cool.shift(message.author.id);
+      message.author.send("**:atm: | \`Daily\`, يمكنك الحصول على الكردت المجانية الان**").catch();
+    }, ms("1d"));
+  }
+});
+/**
+ * Client Events
+ */
+client.on("ready", () => {
+  console.log(`${client.user.username} ready!`);
+  client.user.setActivity(`${PREFIX}help`);
+});
+client.on("warn", (info) => console.log(info));
+client.on("error", console.error);
 
+/**
+ * Import all commands
+ */
+const commandFiles = readdirSync(join(__dirname, "commands")).filter((file) => file.endsWith(".js"));
+for (const file of commandFiles) {
+  const command = require(join(__dirname, "commands", `${file}`));
+  client.commands.set(command.name, command);
+}
 
-client.login('')//توكن بوتك
+client.on("message", async (message) => {
+  if (message.author.bot) return;
+  if (!message.guild) return;
+
+  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(PREFIX)})\\s*`);
+  if (!prefixRegex.test(message.content)) return;
+
+  const [, matchedPrefix] = message.content.match(prefixRegex);
+
+  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/);
+  const commandName = args.shift().toLowerCase();
+
+  const command =
+    client.commands.get(commandName) ||
+    client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
+
+  if (!command) return;
+
+  if (!cooldowns.has(command.name)) {
+    cooldowns.set(command.name, new Collection());
+  }
+
+  const now = Date.now();
+  const timestamps = cooldowns.get(command.name);
+  const cooldownAmount = (command.cooldown || 1) * 1000;
+
+  if (timestamps.has(message.author.id)) {
+    const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+    if (now < expirationTime) {
+      const timeLeft = (expirationTime - now) / 1000;
+      return message.reply(
+        `please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`
+      );
+    }
+  }
+
+  timestamps.set(message.author.id, now);
+  setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+  try {
+    command.execute(message, args);
+  } catch (error) {
+    console.error(error);
+    message.reply("There was an error executing that command.").catch(console.error);
+  }
+});
+
+	    
+client.login('NzY5ODkxMzg4ODQ5NTIwNjcw.X5VnOg.bQVuRxVHcPZzWVL_FEjhE7jZOlI')//توكن بوتك
