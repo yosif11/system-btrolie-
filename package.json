@@ -5,7 +5,7 @@
     "canvas": "^2.6.1",
     "dateformat": "^3.0.3",
     "discord.js": "^11.3.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "get-youtube-id": "^1.0.1",
     "gif-search": "^2.1.0",
     "guild": "^1.2.2",
